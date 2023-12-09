@@ -1,4 +1,4 @@
-from aoc2023.day_one import day_one
+from aoc2023.day_one import day_one, replace_words_with_nums
 
 
 def test_day_one_pt1():
@@ -24,3 +24,9 @@ def test_day_one_pt2():
     """
 
     assert day_one(coordinates) == 281
+
+
+def test_replace_words_with_nums():
+    words = "oneatwobthreecfourdfiveesixfsevengeighthnine"
+
+    assert replace_words_with_nums(words) == "1a2b3c4d5e6f7g8h9"
