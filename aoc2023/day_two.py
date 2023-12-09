@@ -12,12 +12,16 @@ def parse_games(games: str) -> list[dict[str, int]]:
     result = []
     for line in lines:
         game, sets = line.split(':')
-        game_id = int(game.split(' ')[1])
+
         result.append({
-            'id': game_id
+            'id': parse_game_id(game)
         })
 
     return result
+
+
+def parse_game_id(game: str) -> int:
+    return int(game.split(' ')[1])
 
 
 def run():

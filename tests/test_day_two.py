@@ -21,7 +21,7 @@ def test_parse_games():
    """)
 
     assert parse_games(games) == [{
-        'id': 1
+        'id': 1,
     }, {
-        'id': 2
+        'id': 2,
     }]
