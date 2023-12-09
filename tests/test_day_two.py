@@ -20,4 +20,8 @@ def test_parse_games():
         Game 2: 1 red 
    """)
 
-    assert len(parse_games(games)) == 2
+    assert parse_games(games) == [{
+        'id': 1
+    }, {
+        'id': 2
+    }]
