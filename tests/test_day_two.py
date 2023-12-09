@@ -154,7 +154,6 @@ def test_power_of_set_should_multiply_numbers_of_all_colors():
     assert power_of_set(a_set) == 48
 
 
-@pytest.mark.skip(reason="WIP")
 def test_min_cubes_for_game():
     game = {
         'id': 1,
@@ -170,8 +169,4 @@ def test_min_cubes_for_game():
         }]
     }
 
-    assert min_cubes_for_game(game) == {
-        'red': 4,
-        'green': 2,
-        'blue': 6,
-    }
+    assert min_cubes_for_game(game) == dict(red=4, green=2, blue=6)

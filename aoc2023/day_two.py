@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from functools import reduce
+from typing import Dict
 
 default_bag = dict(red=12, green=13, blue=14)
 
@@ -73,8 +74,13 @@ def power_of_set(a_set: dict[str, int]) -> int:
     return reduce(lambda x, y: x * y, counts_per_color)
 
 
-def min_cubes_for_game(game) -> int:
-    pass
+def min_cubes_for_game(game) -> dict[str, int]:
+    min_cubes = dict(red=0, green=0, blue=0)
+    for a_set in game['sets']:
+        for color, count in a_set.items():
+            if count > min_cubes[color]:
+                min_cubes[color] = count
+    return min_cubes
 
 
 def run():
