@@ -1,4 +1,4 @@
-from aoc2023.day_two import day_two, parse_games
+from aoc2023.day_two import day_two, parse_games, parse_set
 from aoc2023.utils.input_reader import sanitize
 
 
@@ -25,3 +25,13 @@ def test_parse_games():
     }, {
         'id': 2,
     }]
+
+
+def test_parse_set():
+    a_set = "1 red, 2 green, 6 blue"
+
+    assert parse_set(a_set) == {
+        'red': 1,
+        'green': 2,
+        'blue': 6,
+    }

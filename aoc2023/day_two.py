@@ -20,6 +20,14 @@ def parse_games(games: str) -> list[dict[str, int]]:
     return result
 
 
+def parse_set(a_set: str) -> dict[str, int]:
+    result = {}
+    for item in a_set.split(', '):
+        count, color = item.split(' ')
+        result[color] = int(count)
+
+    return result
+
 def parse_game_id(game: str) -> int:
     return int(game.split(' ')[1])
 
