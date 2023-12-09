@@ -73,6 +73,10 @@ def power_of_set(a_set: dict[str, int]) -> int:
     return reduce(lambda x, y: x * y, counts_per_color)
 
 
+def min_cubes_for_game(game) -> int:
+    pass
+
+
 def run():
     with open('day_two.txt', 'r') as file:
         content = file.read()

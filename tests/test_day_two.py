@@ -2,7 +2,7 @@ import pytest
 
 from aoc2023.day_two import day_two_pt1, parse_games, parse_set, parse_sets, \
     set_possible, \
-    game_possible, sum_game_ids, day_two_pt2, power_of_set
+    game_possible, sum_game_ids, day_two_pt2, power_of_set, min_cubes_for_game
 from aoc2023.utils.input_reader import sanitize
 
 
@@ -152,3 +152,26 @@ def test_power_of_set_should_multiply_numbers_of_all_colors():
     }
 
     assert power_of_set(a_set) == 48
+
+
+@pytest.mark.skip(reason="WIP")
+def test_min_cubes_for_game():
+    game = {
+        'id': 1,
+        'sets': [{
+            'red': 4,
+            'blue': 3
+        }, {
+            'red': 1,
+            'green': 2,
+            'blue': 6,
+        }, {
+            'green': 2
+        }]
+    }
+
+    assert min_cubes_for_game(game) == {
+        'red': 4,
+        'green': 2,
+        'blue': 6,
+    }
