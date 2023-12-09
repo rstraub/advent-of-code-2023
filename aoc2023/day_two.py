@@ -3,7 +3,7 @@
 default_bag = dict(red=12, green=13, blue=14)
 
 
-def day_two(raw_games: str) -> int:
+def day_two_pt1(raw_games: str) -> int:
     games = parse_games(raw_games)
 
     possible_games = list(filter(lambda game: game_possible(game, default_bag), games))
@@ -62,10 +62,14 @@ def sum_game_ids(games) -> int:
     return sum(map(lambda game: game['id'], games))
 
 
+def day_two_pt2(raw_games: str) -> int:
+    return 0
+
+
 def run():
     with open('day_two.txt', 'r') as file:
         content = file.read()
-        print(day_two(content))
+        print(day_two_pt1(content))
 
 
 if __name__ == "__main__":
