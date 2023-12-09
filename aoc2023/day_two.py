@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 from functools import reduce
-from typing import Dict
 
 default_bag = dict(red=12, green=13, blue=14)
 
@@ -65,7 +64,12 @@ def sum_game_ids(games) -> int:
 
 
 def day_two_pt2(raw_games: str) -> int:
-    return 0
+    games = parse_games(raw_games)
+
+    min_cubes_for_games = list(map(min_cubes_for_game, games))
+    power_of_min_cubes = list(map(power_of_set, min_cubes_for_games))
+
+    return sum(power_of_min_cubes)
 
 
 def power_of_set(a_set: dict[str, int]) -> int:
@@ -86,7 +90,8 @@ def min_cubes_for_game(game) -> dict[str, int]:
 def run():
     with open('day_two.txt', 'r') as file:
         content = file.read()
-        print(day_two_pt1(content))
+        print(f'pt1: {day_two_pt1(content)}')
+        print(f'pt2: {day_two_pt2(content)}')
 
 
 if __name__ == "__main__":

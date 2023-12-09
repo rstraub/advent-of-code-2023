@@ -1,5 +1,3 @@
-import pytest
-
 from aoc2023.day_two import day_two_pt1, parse_games, parse_set, parse_sets, \
     set_possible, \
     game_possible, sum_game_ids, day_two_pt2, power_of_set, min_cubes_for_game
@@ -131,7 +129,6 @@ def test_sum_game_ids():
     assert sum_game_ids([game1, game2]) == 5
 
 
-@pytest.mark.skip(reason="WIP")
 def test_day_two_pt2():
     games = sanitize("""
     Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
