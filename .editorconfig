@@ -1,0 +1,23 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# Top-most EditorConfig file
+root = true
+
+# Unix-style newlines
+[*]
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+trim_trailing_whitespace = true
+
+# Python-specific settings
+[*.py]
+indent_style = space
+indent_size = 4
+max_line_length = 88
+
+# Ignore some files
+[*.md]
+trim_trailing_whitespace = false
+
+# If you are using a different coding style or have specific preferences, feel free to adjust these settings accordingly. The sample above uses 4 spaces for indentation, enforces a maximum line length of 79 characters (following PEP 8 recommendations), and sets up other common configurations for Python projects.
