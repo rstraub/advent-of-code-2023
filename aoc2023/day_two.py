@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from functools import reduce
 
 default_bag = dict(red=12, green=13, blue=14)
 
@@ -64,6 +65,12 @@ def sum_game_ids(games) -> int:
 
 def day_two_pt2(raw_games: str) -> int:
     return 0
+
+
+def power_of_set(a_set: dict[str, int]) -> int:
+    # multiply all values in a_set
+    counts_per_color = a_set.values()
+    return reduce(lambda x, y: x * y, counts_per_color)
 
 
 def run():

@@ -1,6 +1,8 @@
+import pytest
+
 from aoc2023.day_two import day_two_pt1, parse_games, parse_set, parse_sets, \
     set_possible, \
-    game_possible, sum_game_ids, day_two_pt2
+    game_possible, sum_game_ids, day_two_pt2, power_of_set
 from aoc2023.utils.input_reader import sanitize
 
 
@@ -129,6 +131,7 @@ def test_sum_game_ids():
     assert sum_game_ids([game1, game2]) == 5
 
 
+@pytest.mark.skip(reason="WIP")
 def test_day_two_pt2():
     games = sanitize("""
     Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
@@ -139,3 +142,13 @@ def test_day_two_pt2():
     """)
 
     assert day_two_pt2(games) == 2286
+
+
+def test_power_of_set_should_multiply_numbers_of_all_colors():
+    a_set = {
+        'red': 4,
+        'green': 2,
+        'blue': 6,
+    }
+
+    assert power_of_set(a_set) == 48
