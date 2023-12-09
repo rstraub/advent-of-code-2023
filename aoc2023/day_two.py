@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
-from typing import List, Dict, Any
+
+default_bag = dict(red=12, green=13, blue=14)
 
 
-def day_two(games: str) -> int:
-    return 1
+def day_two(raw_games: str) -> int:
+    games = parse_games(raw_games)
+
+    possible_games = list(filter(lambda game: game_possible(game, default_bag), games))
+
+    return sum_game_ids(possible_games)
 
 
 def parse_games(games: str) -> list[dict[str, int]]:
@@ -13,12 +18,13 @@ def parse_games(games: str) -> list[dict[str, int]]:
     for line in lines:
         game, sets = line.split(': ')
 
-        result.append({
-            'id': parse_game_id(game),
-            'sets': parse_sets(sets)
-        })
+        result.append(dict(id=parse_game_id(game), sets=parse_sets(sets)))
 
     return result
+
+
+def parse_game_id(game: str) -> int:
+    return int(game.split(' ')[1])
 
 
 def parse_sets(sets: str) -> list[dict[str, int]]:
@@ -37,8 +43,23 @@ def parse_set(a_set: str) -> dict[str, int]:
 
     return result
 
-def parse_game_id(game: str) -> int:
-    return int(game.split(' ')[1])
+
+def set_possible(a_set: dict[str, int], bag: dict[str, int]) -> bool:
+    for color, count in a_set.items():
+        if color not in bag or count > bag[color]:
+            return False
+    return True
+
+
+def game_possible(game, bag: dict) -> bool:
+    for a_set in game['sets']:
+        if not set_possible(a_set, bag):
+            return False
+    return True
+
+
+def sum_game_ids(games) -> int:
+    return sum(map(lambda game: game['id'], games))
 
 
 def run():
